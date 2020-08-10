@@ -1,7 +1,7 @@
-import { ExampleComponent } from '.'
+import Clock from '.'
 
-describe('ExampleComponent', () => {
+describe('Clock', () => {
   it('is truthy', () => {
-    expect(ExampleComponent).toBeTruthy()
+    expect(Clock).toBeTruthy()
   })
 })
