@@ -49,5 +49,9 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react-resizable": "^1.10.1"
+  }
 }

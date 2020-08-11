@@ -15,12 +15,11 @@ npm install --save react-seven-segment-clock
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'react-seven-segment-clock'
-import 'react-seven-segment-clock/dist/index.css'
+import Clock from 'react-seven-segment-clock'
 
 class Example extends Component {
   render() {
-    return <MyComponent />
+    return <Clock />
   }
 }
 ```
