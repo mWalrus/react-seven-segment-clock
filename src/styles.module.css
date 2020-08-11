@@ -7,7 +7,6 @@
   display: grid;
   grid-template-columns: 10fr 1em 10fr;
   column-gap: 1rem;
-  background-color: #000;
   border: 5px solid gray;
   padding: 2rem;
 }
@@ -42,14 +41,6 @@
   position: absolute;
 }
 
-.colOn {
-  background-color: red;
-}
-
-.colOff {
-  background-color: rgb(58, 46, 46);
-}
-
 .colonDot:first-child {
   top: 5rem;
 }
@@ -57,16 +48,7 @@
   top: 9rem;
 }
 
-.segon {
-  background-color: red;
-}
-.segoff {
-  background-color: rgb(58, 46, 46);
-}
-
-.laying::before,
-.standing::before {
-  content: ' ';
+.topArrow {
   position: absolute;
   width: 0;
   height: 0;
@@ -75,33 +57,13 @@
   top: -0.5em;
 }
 
-.laying::after,
-.standing::after {
-  content: ' ';
+.botArrow {
   position: absolute;
   bottom: -0.5em;
   width: 0;
   height: 0;
   border-style: solid;
   border-width: 0.5em 0.5em 0 0.5em;
-}
-
-.segon.laying::before,
-.segon.standing::before {
-  border-color: transparent transparent red transparent;
-}
-.segon.laying::after,
-.segon.standing::after {
-  border-color: red transparent transparent transparent;
-}
-
-.segoff.laying::before,
-.segoff.standing::before {
-  border-color: transparent transparent rgb(58, 46, 46) transparent;
-}
-.segoff.laying::after,
-.segoff.standing::after {
-  border-color: rgb(58, 46, 46) transparent transparent transparent;
 }
 
 .segment {

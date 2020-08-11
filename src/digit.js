@@ -1,6 +1,8 @@
 import React from 'react'
 import styles from './styles.module.css'
 
+import ClockContext from './ClockContext'
+
 export default class Digit extends React.Component {
   constructor(props) {
     super(props)
@@ -26,7 +28,7 @@ export default class Digit extends React.Component {
         this.generateDigit('1011101')
         break
       case 3:
-        this.generateDigit('1011101')
+        this.generateDigit('1011011')
         break
       case 4:
         this.generateDigit('0111010')
@@ -52,29 +54,41 @@ export default class Digit extends React.Component {
     }
   }
 
-  generateDigit() {
-    const config = arguments['0'].split('')
-
+  generateDigit(conf) {
     const generatedDigit = (
-      <div className={styles.digit}>
-        {config.map((c, i) => {
-          let classes = [styles.segment]
-          // decide if on or off
-          if (c == '0') {
-            classes.push(styles.segoff)
-          } else {
-            classes.push(styles.segon)
-          }
-          // decide laying or standing pos
-          if (i == 0 || i == 3 || i == 6) {
-            classes.push(styles.laying)
-          } else {
-            classes.push(styles.standing)
-          }
-
-          return <span className={classes.join(' ')} />
-        })}
-      </div>
+      <ClockContext.Consumer>
+        {(context) => (
+          <div className={styles.digit}>
+            {conf.split('').map((c, i) => {
+              let classes = [
+                styles.segment,
+                c == '0' ? styles.segoff : styles.segon,
+                i == 0 || i == 3 || i == 6 ? styles.laying : styles.standing
+              ].join(' ')
+              let segStyle = {
+                backgroundColor: c == '0' ? context.offColor : context.onColor
+              }
+              let arrTopStyle = {
+                borderColor:
+                  'transparent transparent ' +
+                  (c == '0' ? context.offColor : context.onColor) +
+                  ' transparent'
+              }
+              let arrBotStyle = {
+                borderColor:
+                  (c == '0' ? context.offColor : context.onColor) +
+                  ' transparent transparent transparent'
+              }
+              return (
+                <span className={classes} style={segStyle}>
+                  <span className={styles.topArrow} style={arrTopStyle} />
+                  <span className={styles.botArrow} style={arrBotStyle} />
+                </span>
+              )
+            })}
+          </div>
+        )}
+      </ClockContext.Consumer>
     )
     this.setState({ generatedDigit })
   }

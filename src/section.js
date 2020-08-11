@@ -10,10 +10,12 @@ export default class Section extends React.Component {
   }
 
   render() {
+    const digits =
+      this.props.digits.length > 1 ? this.props.digits : '0' + this.props.digits
     return (
       <div className={styles.section}>
-        <Digit digit={this.props.digits[0]} />
-        <Digit digit={this.props.digits[1]} />
+        <Digit digit={digits[0]} />
+        <Digit digit={digits[1]} />
       </div>
     )
   }
