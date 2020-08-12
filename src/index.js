@@ -35,7 +35,7 @@ export default class Clock extends React.Component {
 
   render() {
     const width = this.props.width
-    const height = '15em'
+    const height = 'calc(' + width + '/ 2)'
     return (
       <div className={styles.clockContainer}>
         <div

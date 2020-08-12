@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './styles.module.css'
+import { ReactComponent as Segment } from './img/seg.svg'
 
 import ClockContext from './ClockContext'
 
@@ -9,6 +10,10 @@ export default class Digit extends React.Component {
     this.state = {
       generatedDigit: null
     }
+  }
+
+  componentDidMount() {
+    this.interpretDigit()
   }
 
   componentWillReceiveProps() {
@@ -60,31 +65,12 @@ export default class Digit extends React.Component {
         {(context) => (
           <div className={styles.digit}>
             {conf.split('').map((c, i) => {
-              let classes = [
-                styles.segment,
-                c == '0' ? styles.segoff : styles.segon,
-                i == 0 || i == 3 || i == 6 ? styles.laying : styles.standing
+              const classes = [
+                styles.svgSeg,
+                i == 0 || i == 3 || i == 6 ? styles.laying : styles.standing,
+                c == '0' ? styles.segOn : styles.segOff
               ].join(' ')
-              let segStyle = {
-                backgroundColor: c == '0' ? context.offColor : context.onColor
-              }
-              let arrTopStyle = {
-                borderColor:
-                  'transparent transparent ' +
-                  (c == '0' ? context.offColor : context.onColor) +
-                  ' transparent'
-              }
-              let arrBotStyle = {
-                borderColor:
-                  (c == '0' ? context.offColor : context.onColor) +
-                  ' transparent transparent transparent'
-              }
-              return (
-                <span className={classes} style={segStyle}>
-                  <span className={styles.topArrow} style={arrTopStyle} />
-                  <span className={styles.botArrow} style={arrBotStyle} />
-                </span>
-              )
+              return <Segment className={classes} />
             })}
           </div>
         )}

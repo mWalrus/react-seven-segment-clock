@@ -1,13 +1,13 @@
 /* add css module styles here (optional) */
 
 .clockContainer {
+  height: 60em;
 }
 
 .clock {
   display: grid;
-  grid-template-columns: 10fr 1em 10fr;
+  grid-template-columns: 15em 1em 15em;
   column-gap: 1rem;
-  border: 5px solid gray;
   padding: 2rem;
 }
 
@@ -20,98 +20,80 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  column-gap: 1em;
   justify-self: center;
-  justify-items: center;
-  padding: 1rem;
   box-sizing: border-box;
 }
 
 .digitContainer,
 .digit {
   position: relative;
-  width: 100%;
 }
-.digitContainer {
-  justify-self: center;
+.digit {
+  display: grid;
 }
 
 .colonDot {
   width: 1rem;
   height: 1rem;
   position: absolute;
+  border-radius: 50%;
 }
 
 .colonDot:first-child {
-  top: 5rem;
+  top: 20%;
 }
 .colonDot:last-child {
-  top: 9rem;
+  top: 60%;
 }
 
-.topArrow {
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 0.5em 0.5em 0.5em;
-  top: -0.5em;
-}
-
-.botArrow {
-  position: absolute;
-  bottom: -0.5em;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0.5em 0.5em 0 0.5em;
-}
-
-.segment {
-  width: 1rem;
-  height: 4rem;
-  display: block;
+.svgSeg {
+  width: 89%;
+  height: auto;
   position: absolute;
 }
 /* top */
-.segment:nth-child(1) {
-  rotate: 90deg;
-  left: 2.6rem;
-  top: 0rem;
+.svgSeg:nth-child(1) {
 }
 /* top left */
-.segment:nth-child(2) {
-  left: 0;
-  top: 2.6rem;
+.svgSeg:nth-child(2) {
+  left: -3.15em;
+  top: 3.2em;
 }
-
 /* top right */
-.segment:nth-child(3) {
-  left: 5.15rem;
-  top: 2.6rem;
+.svgSeg:nth-child(3) {
+  right: -2.4em;
+  top: 3.2em;
 }
-
 /* middle */
-.segment:nth-child(4) {
-  top: 5.2rem;
-  left: 2.56rem;
-  rotate: 90deg;
+.svgSeg:nth-child(4) {
+  top: 6.4em;
 }
-
 /* bottom left */
-.segment:nth-child(5) {
-  left: 0;
-  top: 7.75rem;
+.svgSeg:nth-child(5) {
+  left: -3.15em;
+  top: 9.55em;
 }
-
 /* bottom right */
-.segment:nth-child(6) {
-  left: 5.15rem;
-  top: 7.75rem;
+.svgSeg:nth-child(6) {
+  right: -2.4em;
+  top: 9.55em;
+}
+/* bottom */
+.svgSeg:nth-child(7) {
+  top: 12.8em;
 }
 
-/* bottom */
-.segment:nth-child(7) {
-  left: 2.56rem;
-  top: 10.3rem;
+.segOn > g {
+  fill: rgb(29, 26, 43);
+}
+.segOff > g {
+  fill: purple;
+}
+
+.standing {
   rotate: 90deg;
+}
+
+.laying {
 }
